@@ -984,3 +984,45 @@ mask-image: linear-gradient(to top, transparent 40%, #079097 80%) !important;
 .not-loaded * {
   animation-play-state: paused !important;
 }
+.greeting {
+  position: absolute;
+  top: 15%;;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ff99cc; /* blue-green */
+  font-size: 3em;
+ font-family: "Brush Script MT", "Lucida Handwriting", cursive;
+  text-shadow: 0 0 10px #00fff2, 0 0 20px #00e6d3, 0 0 40px #00fff2;
+  animation: fadeIn 3s ease-in-out forwards 4s, glow 2s ease-in-out infinite alternate 4s;
+  /* fadeIn + glow both start after 4 seconds */
+  opacity: 0;
+  text-align: center;
+  z-index: 999;
+}
+.greeting.main {
+  font-size: 3em;
+  animation-delay: 4s; /* shows after flowers bloom */
+}
+
+.greeting.sub {
+  font-size: 1.0em;
+  margin-top: 35px;   /* spacing below title */
+  color: #ffffff; /* white */
+  text-shadow: 0 0 10px #cccccc, 0 0 20px #ffffff, 0 0 40px #e6e6e6;
+  font-family: Arial, Helvetica, sans-serif; /* clean and readable */
+  animation-delay: 9s; /* appears after main */
+}
+
+.not-loaded .greeting {
+  animation-play-state: running !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -40%); }
+  to   { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px #ff69b4, 0 0 10px #ffb6c1, 0 0 20px #ff69b4; }
+  to   { text-shadow: 0 0 20px #ff1493, 0 0 40px #ff69b4, 0 0 60px #ff1493; }
+}
